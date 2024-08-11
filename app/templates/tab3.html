@@ -1,2 +1,65 @@
-<h2>タブ3の内容</h2>
-<p>ここにタブ3の内容が表示されます。</p>
+<div class="open-modal-button-container">
+    {% comment %} <button class="open-modal-button" onclick="openModal('tab2')">情報登録</button> {% endcomment %}
+    <button class="open-modal-button" data-tab="tab2">情報登録</button>
+</div>
+
+<!-- モーダルのHTML -->
+<div id="tab2Modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('tab2')">&times;</span>
+        <h2>交流場所</h2>
+        <form id="lostFoundForm" method="POST" action="{% url 'register_lost_found' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="prefecture">都道府県:</label>
+                <input type="text" id="prefecture" name="prefecture" required>
+            </div>
+            <div class="form-group">
+                <label for="city_district">市、区:</label>
+                <input type="text" id="city_district" name="city_district" required>
+            </div>
+            <div class="form-group">
+                <label for="title">タイトル:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="date">日付:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="description">チャット:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="submit-button">登録</button>
+        </form>
+    </div>
+</div>
+
+<h2>交流・チャット</h2>
+<ul class="data-list">
+    {% for item in lost_found_items %}
+        <li class="data-item">
+            <div class="info_container">
+                <div class="description_container">
+                    <h3>{{ item.title }}</h3>
+                    <p>地域: {{ item.prefecture }}/{{ item.city_district }}</p>
+                    <p>日付: {{ item.date }}</p>
+                    <p>文: {{ item.description }}</p>
+                    <p>Email: {{ item.email }}</p>
+                </div>
+            <form method="POST" action="{% url 'delete_lost_found' item.id %}">
+                {% csrf_token %}
+                <button type="submit" class="delete-button" onclick="return confirm('本当に削除しますか？');">削除</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+{% if error %}
+    <p class="error-message">{{ error }}</p>
+{% endif %}
+
