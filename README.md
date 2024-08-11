@@ -4,7 +4,7 @@
 
 ```
 python3 -m venv env
-.\venv\Scripts\activate (windows)
+.\env\Scripts\activate (windows)
 (source env/bin/activate) (Mac)
 pip install -r requirements.txt
 python manage.py runserver
