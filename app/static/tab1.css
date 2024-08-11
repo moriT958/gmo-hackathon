@@ -135,6 +135,18 @@
     }
 }
 
+#event-url a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#event-url a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
 /* .tab-content {
     padding: 20px;
 }

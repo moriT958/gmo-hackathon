@@ -53,7 +53,7 @@
                     <p>地域: {{ location.prefecture }}/{{ location.city_district }}</p>
                     <p>日付: {{ location.date }}</p>
                     <p>説明: {{ location.description }}</p>
-                    <p><a href="{{ location.external_url }}">{{ location.external_url }}</a></p>
+                    <div id="event-url"><a href="{{ location.external_url }}">{{ location.external_url }}</a></div>
                 </div>
                 <div class="image_container">
                     <img src="{{ location.image.url }}" alt="{{ location.title }}">
