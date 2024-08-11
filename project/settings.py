@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h#ko)&0^(6tk@r)vtu&^3yas(j9plb4eko+povyj!&f=_t^f(h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['gmo-hackathon.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
