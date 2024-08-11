@@ -41,25 +41,17 @@
 
 <h2>交流・チャット</h2>
 <ul class="data-list">
-    {% for item in lost_found_items %}
-        <li class="data-item">
-            <div class="info_container">
-                <div class="description_container">
-                    <h3>{{ item.title }}</h3>
-                    <p>地域: {{ item.prefecture }}/{{ item.city_district }}</p>
-                    <p>日付: {{ item.date }}</p>
-                    <p>文: {{ item.description }}</p>
-                    <p>Email: {{ item.email }}</p>
-                </div>
-            <form method="POST" action="{% url 'delete_lost_found' item.id %}">
-                {% csrf_token %}
-                <button type="submit" class="delete-button" onclick="return confirm('本当に削除しますか？');">削除</button>
-            </form>
-        </li>
-    {% endfor %}
+    <li class="data-item">
+        <div class="info_container">
+            <div class="description_container">
+                <h3></h3>
+                <p>イベント情報 </p>
+                <p>日付: 8月10日</p>
+                <p>文:こんにちはお祭り運営です。9:00より花火(田代砲)打ちます。参加者は是非</p>
+                <p>ユーザー名:</p>
+            </div>
+    </li>
 </ul>
 
-{% if error %}
-    <p class="error-message">{{ error }}</p>
-{% endif %}
+
 
