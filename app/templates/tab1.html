@@ -1,0 +1,74 @@
+<div class="open-modal-button-container">
+    {% comment %} <button class="open-modal-button" onclick="openModal('tab1')">情報登録</button> {% endcomment %}
+    <button class="open-modal-button" data-tab="tab1">情報登録</button>
+</div>
+
+<!-- モーダルのHTML -->
+<div id="tab1Modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('tab1')">&times;</span>
+        <h2>情報登録</h2>
+        <form id="dataForm" method="POST" action="{% url 'register_data' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="prefecture">都道府県:</label>
+                <input type="text" id="prefecture" name="prefecture" required>
+            </div>
+            <div class="form-group">
+                <label for="city_district">市、区:</label>
+                <input type="text" id="city_district" name="city_district" required>
+            </div>
+            <div class="form-group">
+                <label for="title">タイトル:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="date">日付:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="image">画像:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="description">説明文:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="external_url">外部URL:</label>
+                <input type="url" id="external_url" name="external_url">
+            </div>
+            <button type="submit" class="submit-button">登録</button>
+        </form>
+    </div>
+</div>
+
+<h2>イベント/ニュース一覧</h2>
+<ul class="data-list">
+    {% for location in locations %}
+        <li class="data-item">
+            <div class="info_container">
+                <div class="description_container">
+                    <h3>{{ location.title }}</h3>
+                    <p>地域: {{ location.prefecture }}/{{ location.city_district }}</p>
+                    <p>日付: {{ location.date }}</p>
+                    <p>説明: {{ location.description }}</p>
+                    <p><a href="{{ location.external_url }}">{{ location.external_url }}</a></p>
+                </div>
+                <div class="image_container">
+                    <img src="{{ location.image.url }}" alt="{{ location.title }}">
+                </div>
+            </div>
+            {% comment %}
+            <form method="POST" action="{% url 'delete_data' location.id %}">
+                {% csrf_token %}
+                <button type="submit" class="delete-button" onclick="return confirm('本当に削除しますか？');">削除</button>
+            </form>
+            {% endcomment %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% if error %}
+    <p class="error-message">{{ error }}</p>
+{% endif %}

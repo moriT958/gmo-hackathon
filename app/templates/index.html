@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ごきんじょマップ</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'tab1.css' %}">
+    <link rel="stylesheet" href="{% static 'tab2.css' %}">
+</head>
+
+<body>
+    {% comment %} <script src="{% static 'scripts.js' %}"></script> {% endcomment %}
+
+    <header>
+        <h1>ごきんじょマップ</h1>
+    </header>
+
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab-button" onclick="showTab('tab1', event)">ｲﾍﾞﾝﾄ/ﾆｭｰｽ</div>
+            <div class="tab-button" onclick="showTab('tab2', event)">迷子/探し物</div>
+            <div class="tab-button" onclick="showTab('tab3', event)">タブ3</div>
+        </div>
+    </div>
+
+    <div id="tab1" class="tab">
+        {% include 'tab1.html' %}
+    </div>
+    <div id="tab2" class="tab">
+        {% include 'tab2.html' %}
+    </div>
+    <div id="tab3" class="tab">
+        {% include 'tab3.html' %}
+    </div>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+/* モーダルを開くボタンのスタイル */
+.open-modal-button-container {
+    display: flex;
+    justify-content: flex-end;
+    /* margin-bottom: 20px; */
+
+    .open-modal-button {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        /* margin-bottom: 20px; */
+    }
+
+    .open-modal-button:hover {
+        background-color: #0056b3;
+    }
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    /* スクロール可能にする */
+
+    .modal-content {
+        h2 {
+            padding-bottom: 10px;
+        }
+
+        background-color: #ffffff;
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* フォーム要素のスタイル */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="time"],
+        .form-group input[type="url"],
+        .form-group input[type="file"],
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* ファイル選択の入力欄のカスタマイズ */
+        .form-group input[type="file"] {
+            padding: 5px;
+            /* ファイル選択ボタンの余白を調整 */
+        }
+
+        .form-group textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        /* 送信ボタンのスタイル */
+        .submit-button {
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #218838;
+        }
+
+        /* モーダルを閉じるボタンのスタイル */
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group input[type="time"],
+    .form-group input[type="url"],
+    .form-group input[type="file"],
+    .form-group textarea {
+        font-size: 16px;
+        /* モバイルデバイスでは少し大きくする */
+    }
+}
+
+/* .tab-content {
+    padding: 20px;
+}
+
+.tab-content h2 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.tab-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.data-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.data-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.data-item h3 {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.data-item p {
+    margin-bottom: 5px;
+}
+
+.data-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.data-item a {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.data-item a:hover {
+    text-decoration: underline;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 10px;
+}*/
+
+h2 {
+    padding-bottom: 15px;
+}
+
+.data-list {
+
+    h3,
+    p {
+        padding: 5px 0;
+    }
+
+    .info_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        /* 外枠を追加 */
+        border-radius: 5px;
+        /* 角を少し丸くする */
+        padding: 15px;
+        /* 内側の余白を追加 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* 影をつけて立体感を出す */
+
+        .description_container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .image_container {
+            flex: 1;
+        }
+
+        .image_container img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+}
